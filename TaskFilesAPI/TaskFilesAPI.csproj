@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <Content Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <EmbeddedResource Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <None Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Hellang.Middleware.ProblemDetails" Version="6.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,15 +28,16 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DTO\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="TxFileManager" Version="1.5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TaskFilesAPI.DataAccess\TaskFilesAPI.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UploadFiles\7591953A-4B4D-48FE-A82E-96121D51CF7E\" />
+    <Folder Include="Temp\" />
   </ItemGroup>
 
 </Project>
