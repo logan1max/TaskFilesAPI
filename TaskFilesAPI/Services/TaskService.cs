@@ -98,7 +98,7 @@ public class TaskService : ITaskService
 
         using var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
-        var filesOperationResult = await _fileRepository.DeleteTasksFilesAsync(taskIds, cancellationToken);
+        var filesOperationResult = await _fileRepository.DeleteFilesAsync(taskIds, cancellationToken);
         var tasksOperationResult = await _taskRepository.DeleteTasksAsync(taskIds, cancellationToken);
         var folderFilesOperationResult = _fileHelper.DeleteTasksFiles(taskIds, fm);
 

@@ -23,12 +23,12 @@ public class FileModel
     public DateTime UploadDate { get; set; }
 
     /// <summary>
-    /// Хэш файла
-    /// </summary>
-    //public string Hash { get; set; } = null!;
-
-    /// <summary>
     /// Размер файла
     /// </summary>
     public long Length { get; set; }
+
+    /// <summary>
+    /// Тип контента файла
+    /// </summary>
+    public string ContentType { get; set; } = null!;
 }

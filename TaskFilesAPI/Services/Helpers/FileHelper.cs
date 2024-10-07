@@ -80,10 +80,12 @@ public class FileHelper : IFileHelper
 
     public async Task<string> CreateZipFilesBase64Async(Guid taskId, CancellationToken cancellationToken)
     {
-        var path = GetTaskFilesPath(taskId);
-        var tempFolder = Path.Combine(Directory.GetCurrentDirectory(), TempFolderName);
+        //var path = GetTaskFilesPath(taskId);
+        //var tempFolder = Path.Combine(Directory.GetCurrentDirectory(), TempFolderName);
 
-        var zip = new ZipArchive()
+        //var zip = new ZipArchive()
+
+        return "str";
     }
 
     private static async Task<FileModel> WriteFileToFolderAsync(Guid taskId, IFormFile file, CancellationToken cancellationToken)
@@ -104,7 +106,8 @@ public class FileHelper : IFileHelper
             FileId = fileId,
             Name = file.FileName,
             Length = file.Length,
-            UploadDate = DateTime.Now,
+            UploadDate = DateTime.UtcNow,
+            ContentType = file.ContentType,
         };
 
         return result;

@@ -12,7 +12,7 @@ using TaskFilesAPI.DataAccess.Context;
 namespace TaskFilesAPI.DataAccess.Migrations
 {
     [DbContext(typeof(TaskFilesContext))]
-    [Migration("20240929141700_Initial")]
+    [Migration("20241005232405_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -30,6 +30,11 @@ namespace TaskFilesAPI.DataAccess.Migrations
                     b.Property<Guid>("FileId")
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Идентификатор файла");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Тип контента файла");
 
                     b.Property<long>("Length")
                         .HasColumnType("bigint")

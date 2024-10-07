@@ -10,6 +10,7 @@ internal static class ServiceRegistrator
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services
+            .AddScoped<IFileService, FileService>()
             .AddScoped<ITaskService, TaskService>()
             .AddScoped<IFileHelper, FileHelper>();
 

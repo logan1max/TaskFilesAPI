@@ -20,5 +20,8 @@ public class FileModel
     [Comment("Размер файла")]
     public long Length { get; set; }
 
+    [Comment("Тип контента файла")]
+    public string ContentType { get; set; } = null!;
+
     public virtual TaskModel Task { get; set; } = null!;
 }

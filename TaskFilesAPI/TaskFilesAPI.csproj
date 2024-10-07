@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Temp\**" />
     <Compile Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <Content Remove="Temp\**" />
     <Content Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <EmbeddedResource Remove="Temp\**" />
     <EmbeddedResource Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
+    <None Remove="Temp\**" />
     <None Remove="UploadFiles\86A33070-CBA8-4B69-96F8-A864E65057D6\**" />
   </ItemGroup>
 
@@ -32,12 +36,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TaskFilesAPI.Contracts\TaskFilesAPI.Contracts.csproj" />
     <ProjectReference Include="..\TaskFilesAPI.DataAccess\TaskFilesAPI.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UploadFiles\7591953A-4B4D-48FE-A82E-96121D51CF7E\" />
-    <Folder Include="Temp\" />
+    <Folder Include="FilesUploaded\" />
+    <Folder Include="UploadFiles\" />
   </ItemGroup>
 
 </Project>

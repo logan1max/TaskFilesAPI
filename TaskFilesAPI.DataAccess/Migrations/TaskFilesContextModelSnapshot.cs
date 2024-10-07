@@ -28,6 +28,11 @@ namespace TaskFilesAPI.DataAccess.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasComment("Идентификатор файла");
 
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("Тип контента файла");
+
                     b.Property<long>("Length")
                         .HasColumnType("bigint")
                         .HasComment("Размер файла");

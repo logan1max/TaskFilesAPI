@@ -37,7 +37,8 @@ namespace TaskFilesAPI.DataAccess.Migrations
                     TaskId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, comment: "Идентификатор задачи"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Имя файла"),
                     UploadDate = table.Column<DateTime>(type: "datetime2", nullable: false, comment: "Дата загрузки файла"),
-                    Length = table.Column<long>(type: "bigint", nullable: false, comment: "Размер файла")
+                    Length = table.Column<long>(type: "bigint", nullable: false, comment: "Размер файла"),
+                    ContentType = table.Column<string>(type: "nvarchar(max)", nullable: false, comment: "Тип контента файла")
                 },
                 constraints: table =>
                 {
