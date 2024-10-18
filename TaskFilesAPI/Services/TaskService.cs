@@ -41,29 +41,29 @@ public class TaskService : ITaskService
         return await _fileHelper.GetFilesAsync(taskId, cancellationToken);
     }
 
-    public async Task CreateTasksAsync(List<TaskCreateUpdateModel> tasks, CancellationToken cancellationToken)
-    {
-        var result = new List<TaskModel>();
-
-        foreach (var task in tasks)
-        {
-            var taskId = task.TaskId ?? Guid.NewGuid();
-
-            var files = await _fileHelper.UploadTaskFilesAsync(taskId, task.Files, cancellationToken);
-
-            var taskItem = new TaskModel()
-            {
-                TaskId = taskId,
-                Name = task.Name ?? string.Empty,
-                Status = task.Status ?? string.Empty,
-                Files = files,
-            };
-
-            result.Add(taskItem);
-        }
-
-        //await _taskRepository.CreateTaskAsync(result, cancellationToken);
-    }
+    // public async Task CreateTasksAsync(List<TaskCreateUpdateModel> tasks, CancellationToken cancellationToken)
+    // {
+    //     var result = new List<TaskModel>();
+    //
+    //     foreach (var task in tasks)
+    //     {
+    //         var taskId = task.TaskId ?? Guid.NewGuid();
+    //
+    //         var files = await _fileHelper.UploadTaskFilesAsync(taskId, task.Files, cancellationToken);
+    //
+    //         var taskItem = new TaskModel()
+    //         {
+    //             TaskId = taskId,
+    //             Name = task.Name ?? string.Empty,
+    //             Status = task.Status ?? string.Empty,
+    //             Files = files,
+    //         };
+    //
+    //         result.Add(taskItem);
+    //     }
+    //
+    //     //await _taskRepository.CreateTaskAsync(result, cancellationToken);
+    // }
 
     public async Task CreateTaskAsync(TaskCreateUpdateModel task, string user, CancellationToken cancellationToken)
     {
@@ -82,15 +82,15 @@ public class TaskService : ITaskService
         await _taskRepository.CreateTaskAsync(result, user, cancellationToken);
     }
 
-    public async Task UpdateTaskAsync(TaskCreateUpdateModel task, CancellationToken cancellationToken)
-    {
-        await _taskRepository.GetTaskByIdAsync(task.TaskId!.Value, cancellationToken);
-
-        //if (task.TaskId)
-        //{
-
-        //}
-    }
+    // public async Task UpdateTaskAsync(TaskCreateUpdateModel task, CancellationToken cancellationToken)
+    // {
+    //     await _taskRepository.GetTaskByIdAsync(task.TaskId!.Value, cancellationToken);
+    //
+    //     //if (task.TaskId)
+    //     //{
+    //
+    //     //}
+    // }
 
     public async Task<Contracts.TaskDeleteOperationResult> DeleteTasksAsync(List<Guid> taskIds, CancellationToken cancellationToken)
     {

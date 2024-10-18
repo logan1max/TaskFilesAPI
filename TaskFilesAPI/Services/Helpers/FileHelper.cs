@@ -78,16 +78,6 @@ public class FileHelper : IFileHelper
         return result;
     }
 
-    public async Task<string> CreateZipFilesBase64Async(Guid taskId, CancellationToken cancellationToken)
-    {
-        //var path = GetTaskFilesPath(taskId);
-        //var tempFolder = Path.Combine(Directory.GetCurrentDirectory(), TempFolderName);
-
-        //var zip = new ZipArchive()
-
-        return "str";
-    }
-
     private static async Task<FileModel> WriteFileToFolderAsync(Guid taskId, IFormFile file, CancellationToken cancellationToken)
     {
         var extension = Path.GetExtension(file.FileName);
@@ -95,7 +85,7 @@ public class FileHelper : IFileHelper
 
         Directory.CreateDirectory(path);
 
-        Guid fileId = Guid.NewGuid();
+        var fileId = Guid.NewGuid();
 
         using var stream = new FileStream(Path.Combine(path, fileId.ToString() + extension), FileMode.Create);
         await file.CopyToAsync(stream, cancellationToken);

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TaskFilesAPI.DTO;
 using TaskFilesAPI.Services;
@@ -57,12 +56,6 @@ public class TasksController : ControllerBase
         return Ok();
     }
 
-    [HttpPut]
-    public async Task Update([FromForm] TaskCreateUpdateModel task, CancellationToken cancellationToken)
-    {
-
-    }
-
     [HttpDelete]
     [ProducesResponseType(typeof(TaskDeleteOperationResult), StatusCodes.Status200OK)]
     public async Task<ActionResult> Delete(List<Guid> taskIds, CancellationToken cancellationToken)
@@ -71,16 +64,4 @@ public class TasksController : ControllerBase
 
         return Ok(_mapper.Map<TaskDeleteOperationResult>(results));
     }
-
-    //[HttpPost]
-    //[ProducesResponseType(StatusCodes.Status201Created)]
-    //public async Task<ActionResult> UploadFile(IFormFileCollection files)
-    //{
-    //    foreach(var file in files)
-    //    {
-    //        //await _taskService.CreateTaskAsync(file);
-    //    }
-
-    //    return Ok();
-    //}
 }
